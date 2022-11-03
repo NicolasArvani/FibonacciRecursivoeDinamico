@@ -51,7 +51,7 @@
             // 
             // btnFibonacciRecursivo
             // 
-            this.btnFibonacciRecursivo.Location = new System.Drawing.Point(162, 282);
+            this.btnFibonacciRecursivo.Location = new System.Drawing.Point(86, 378);
             this.btnFibonacciRecursivo.Name = "btnFibonacciRecursivo";
             this.btnFibonacciRecursivo.Size = new System.Drawing.Size(70, 34);
             this.btnFibonacciRecursivo.TabIndex = 0;
@@ -76,25 +76,24 @@
             this.txtInputFibonacci.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.25F);
             this.txtInputFibonacci.Location = new System.Drawing.Point(10, 342);
             this.txtInputFibonacci.Name = "txtInputFibonacci";
-            this.txtInputFibonacci.Size = new System.Drawing.Size(122, 31);
+            this.txtInputFibonacci.Size = new System.Drawing.Size(222, 31);
             this.txtInputFibonacci.TabIndex = 2;
-            this.txtInputFibonacci.TextChanged += new System.EventHandler(this.txtInputFibonacci_TextChanged);
             // 
             // btnFibonacciLista
             // 
-            this.btnFibonacciLista.Location = new System.Drawing.Point(162, 322);
+            this.btnFibonacciLista.Location = new System.Drawing.Point(10, 378);
             this.btnFibonacciLista.Name = "btnFibonacciLista";
             this.btnFibonacciLista.Size = new System.Drawing.Size(70, 34);
             this.btnFibonacciLista.TabIndex = 6;
-            this.btnFibonacciLista.Text = "Fibonacci Dinamico";
+            this.btnFibonacciLista.Text = "Fibonacci Dinâmico";
             this.btnFibonacciLista.UseVisualStyleBackColor = true;
             this.btnFibonacciLista.Click += new System.EventHandler(this.btnFibonacciLista_Click);
             // 
             // btnMostrarLista
             // 
-            this.btnMostrarLista.Location = new System.Drawing.Point(162, 362);
+            this.btnMostrarLista.Location = new System.Drawing.Point(162, 378);
             this.btnMostrarLista.Name = "btnMostrarLista";
-            this.btnMostrarLista.Size = new System.Drawing.Size(70, 36);
+            this.btnMostrarLista.Size = new System.Drawing.Size(70, 34);
             this.btnMostrarLista.TabIndex = 7;
             this.btnMostrarLista.Text = "Mostrar Lista";
             this.btnMostrarLista.UseVisualStyleBackColor = true;
@@ -149,9 +148,9 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(15, 33);
+            this.pictureBox1.Location = new System.Drawing.Point(43, 33);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(75, 75);
+            this.pictureBox1.Size = new System.Drawing.Size(151, 146);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 10;
             this.pictureBox1.TabStop = false;
@@ -160,7 +159,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Arial Rounded MT Bold", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(14, 111);
+            this.label1.Location = new System.Drawing.Point(80, 182);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(76, 24);
             this.label1.TabIndex = 11;
@@ -175,7 +174,7 @@
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(110, 29);
             this.label2.TabIndex = 12;
-            this.label2.Text = "Numero:";
+            this.label2.Text = "Número:";
             // 
             // sairToolStripMenuItem
             // 

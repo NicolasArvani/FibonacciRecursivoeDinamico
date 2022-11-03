@@ -23,16 +23,52 @@ namespace nico
             carregarLista();
         }
 
+        List<BigInteger> ListaFibonacci; //lista com os fibonaccis guardados
+        
+        /*Carregar lista dinamica*/
+        private void carregarLista()
+        {
+            
+            FileStream fs = new FileStream("Fibonacci.bin", FileMode.OpenOrCreate); //objeto de arquivo binario
+            BinaryFormatter bf = new BinaryFormatter();
+            if(fs.Length == 0) //Se não houver itens na lista, insere os dois primeiros numeros
+            {
+                ListaFibonacci = new List<BigInteger>();
+                ListaFibonacci.Add(1);
+                ListaFibonacci.Add(1);
+            }
+            else //caso haja, apenas carrega o arquivo para a lista
+                ListaFibonacci = (List<BigInteger>)bf.Deserialize(fs);
+            fs.Close();
+        }
+
+        
+        /*Fibonacci*/
+        private BigInteger fibonacciDinamico(ref List<BigInteger> lista, int n)
+        {
+            int ultimo = lista.Count;
+            if (n <= lista.Count) //se o numero ja foi calculado anteriormente, retorna imediatamente
+                return lista[n - 1];
+            else //recursao
+            {
+                ListaFibonacci.Add(fibonacciDinamico(ref ListaFibonacci, n - 1) + fibonacciDinamico(ref ListaFibonacci, n - 2));
+                return ListaFibonacci[n - 1];
+            }
+
+        }
+
         public BigInteger FibonacciRecursivo(BigInteger x)
         {
             if (x == 1 || x == 2)
                 return 1;
+            else if (x == 0)
+                return 0;
             else
-                return FibonacciRecursivo(x - 1) + FibonacciRecursivo(x-2);
+                return FibonacciRecursivo(x - 1) + FibonacciRecursivo(x - 2);
         }
 
+        /*Componentes*/
 
-       
         private void btnFibonacciRecursivo_Click(object sender, EventArgs e)
         {
             if (String.IsNullOrEmpty(txtInputFibonacci.Text))
@@ -53,37 +89,13 @@ namespace nico
             txtOutput.AppendText("Tempo de execução: " + stopwatch.ElapsedMilliseconds.ToString() + "ms\r\n");
         }
 
-        private void btnNotas_Click(object sender, EventArgs e)
-        {
-
-        }
-        List<BigInteger> ListaFibonacci;
-        
-        private void carregarLista()
-        {
-            
-            FileStream fs = new FileStream("Fibonacci.bin", FileMode.OpenOrCreate); //objeto de arquivo binario
-
-            BinaryFormatter bf = new BinaryFormatter();
-            if(fs.Length == 0)
-            {
-                ListaFibonacci = new List<BigInteger>();
-                ListaFibonacci.Add(1);
-                ListaFibonacci.Add(1);
-            }
-            else
-                ListaFibonacci = (List<BigInteger>)bf.Deserialize(fs);
-            fs.Close();
-        }
-
-        
         private void btnFibonacciLista_Click(object sender, EventArgs e)
         {
             if (String.IsNullOrEmpty(txtInputFibonacci.Text))
                 return;
             int n = int.Parse(txtInputFibonacci.Text);
            
-            if (n - ListaFibonacci.Count > 40)
+            if (n - ListaFibonacci.Count > 200)
             {
                 MessageBox.Show("Número muito grande, escolha um número menor que 40!");
                 return;
@@ -97,44 +109,6 @@ namespace nico
             txtOutput.AppendText("[Dinamica]Fibonacci de " + n + ":" + " " + resultado.ToString() + "\r\n");
             txtOutput.AppendText("Tempo de execução: " + stopwatch.ElapsedMilliseconds.ToString() + "ms\r\n");
 
-
-
-            ////list = (List<BigInteger>)bf.Deserialize(fs);
-            ////foreach(BigInteger a in list)
-            ////    txtOutput.AppendText(a.ToString() + "\r\n");
-            //for (int i = 1; i <= 20; i++)
-            //{
-            //    list.Add(FibonacciRecursivo((BigInteger)i));
-            //}
-            //foreach (BigInteger a in list)
-            //    txtOutput.AppendText(a.ToString() + "\r\n");
-            //bf.Serialize(fs, list);
-            //fs.Flush();
-            //fs.Close();
-            //https://stackoverflow.com/questions/21080839/pulling-objects-from-binary-file-and-putting-in-listt
-        }
-
-        private BigInteger fibonacciDinamico(ref List<BigInteger> lista, int n)
-        {
-            int ultimo = lista.Count;
-            if (n <= lista.Count)
-                return lista[n - 1];
-            else
-            {
-                ListaFibonacci.Add(fibonacciDinamico(ref ListaFibonacci, n - 1) + fibonacciDinamico(ref ListaFibonacci, n - 2));
-                return ListaFibonacci[n - 1];
-            }
-
-        }
-        
-
-        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            //Salvar a lista no arquivo antes de fechar o form
-            FileStream fs = new FileStream("Fibonacci.bin", FileMode.OpenOrCreate);
-            BinaryFormatter bf = new BinaryFormatter();
-            bf.Serialize(fs, ListaFibonacci);
-            fs.Close();
         }
 
         private void btnMostrarLista_Click(object sender, EventArgs e)
@@ -154,6 +128,8 @@ namespace nico
         {
             txtOutput.Clear();
         }
+
+        /*ToolStripMenu*/
 
         private void zerarListaToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -180,11 +156,6 @@ namespace nico
             }
         }
 
-        private void txtInputFibonacci_TextChanged(object sender, EventArgs e)
-        {
-            
-        }
-
         private void sairToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -194,6 +165,18 @@ namespace nico
         {
             Sobre sobre = new Sobre();
             sobre.Show();
+        }
+
+
+        /*Background*/
+
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            //Salvar a lista no arquivo antes de fechar o form
+            FileStream fs = new FileStream("Fibonacci.bin", FileMode.OpenOrCreate);
+            BinaryFormatter bf = new BinaryFormatter();
+            bf.Serialize(fs, ListaFibonacci);
+            fs.Close();
         }
     }
 

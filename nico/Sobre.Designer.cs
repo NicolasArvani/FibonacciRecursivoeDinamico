@@ -35,6 +35,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -81,10 +82,10 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
-            this.label4.Location = new System.Drawing.Point(216, 72);
+            this.label4.Font = new System.Drawing.Font("Arial Rounded MT Bold", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(216, 78);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(157, 34);
+            this.label4.Size = new System.Drawing.Size(181, 34);
             this.label4.TabIndex = 4;
             this.label4.Text = "Ciência da Computação\r\n4º Semestre 2022\r\n";
             // 
@@ -94,9 +95,19 @@
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
             this.label5.Location = new System.Drawing.Point(216, 118);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(283, 17);
+            this.label5.Size = new System.Drawing.Size(283, 34);
             this.label5.TabIndex = 5;
-            this.label5.Text = "Nicolas Alberto Arvani Pereira - SL3014584\r\n";
+            this.label5.Text = "Isabela Bicudo de Souza - SL301584X\r\nNicolas Alberto Arvani Pereira - SL3014584\r\n" +
+    "";
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Location = new System.Drawing.Point(203, 66);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(296, 99);
+            this.groupBox1.TabIndex = 6;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
             // Sobre
             // 
@@ -109,6 +120,7 @@
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.Controls.Add(this.groupBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "Sobre";
             this.Text = "Sobre";
@@ -126,5 +138,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.GroupBox groupBox1;
     }
 }
