@@ -69,7 +69,43 @@ namespace nico
 
         /*Componentes*/
 
-        private void btnFibonacciRecursivo_Click(object sender, EventArgs e)
+        private void btnRodar_Click(object sender, EventArgs e)
+        {
+            if (String.IsNullOrEmpty(txtInputFibonacci.Text))
+                return;
+            int x = int.Parse(txtInputFibonacci.Text);
+            if(x > 40)
+            {
+                if(MessageBox.Show("Indice de Fibonacci muito grande, deseja continuar?","Atenção", MessageBoxButtons.YesNo) != DialogResult.Yes)
+                {
+                    return;
+                }
+            }
+
+            Stopwatch stopwatch = new Stopwatch();
+            if (chkRecursivo.Checked)
+            {
+                stopwatch.Start();
+                BigInteger resultadoRec = FibonacciRecursivo((BigInteger)x);
+                stopwatch.Stop();
+
+                txtOutput.AppendText("[Recursivo] Fibonacci de " + x.ToString() + ": " + resultadoRec.ToString() + "\r\n");
+                txtOutput.AppendText("Tempo de execução: " + stopwatch.ElapsedMilliseconds.ToString() + "ms\r\n");
+                stopwatch.Reset();
+            }
+
+            if (chkDinamico.Checked)
+            {
+                stopwatch.Start();
+                BigInteger resultadoDin = fibonacciDinamico(ref ListaFibonacci, x);
+                stopwatch.Stop();
+
+                txtOutput.AppendText("[Dinamica] Fibonacci de " + x.ToString() + ": " + resultadoDin.ToString() + "\r\n");
+                txtOutput.AppendText("Tempo de execução: " + stopwatch.ElapsedMilliseconds.ToString() + "ms\r\n");
+            }
+        }
+
+        private void btnFibonacciRecursivo_Click(object sender, EventArgs e) //legacy
         {
             if (String.IsNullOrEmpty(txtInputFibonacci.Text))
                 return;
@@ -82,14 +118,14 @@ namespace nico
 
             Stopwatch stopwatch = new Stopwatch();
             stopwatch.Start();
-            BigInteger resultado = FibonacciRecursivo((BigInteger)x);
+            BigInteger resultadoRec = FibonacciRecursivo((BigInteger)x);
             stopwatch.Stop();
-            txtOutput.AppendText("[Recursivo]Fibonacci de " + x.ToString() + ": " + resultado.ToString() + "\r\n");
-            
+            txtOutput.AppendText("[Recursivo] Fibonacci de " + x.ToString() + ": " + resultadoRec.ToString() + "\r\n");
             txtOutput.AppendText("Tempo de execução: " + stopwatch.ElapsedMilliseconds.ToString() + "ms\r\n");
+
         }
 
-        private void btnFibonacciLista_Click(object sender, EventArgs e)
+        private void btnFibonacciLista_Click(object sender, EventArgs e) //legacy
         {
             if (String.IsNullOrEmpty(txtInputFibonacci.Text))
                 return;
@@ -106,7 +142,7 @@ namespace nico
             BigInteger resultado = fibonacciDinamico(ref ListaFibonacci, n);
 
             stopwatch.Stop();
-            txtOutput.AppendText("[Dinamica]Fibonacci de " + n + ":" + " " + resultado.ToString() + "\r\n");
+            txtOutput.AppendText("[Dinamica] Fibonacci de " + n + ":" + " " + resultado.ToString() + "\r\n");
             txtOutput.AppendText("Tempo de execução: " + stopwatch.ElapsedMilliseconds.ToString() + "ms\r\n");
 
         }
@@ -119,9 +155,9 @@ namespace nico
             {
                 txtOutput.AppendText("N." + i + ": " + n + "\r\n");
                 i++;
-            }
-            
+            };
             txtOutput.AppendText("Total de Itens: " + ListaFibonacci.Count.ToString() + "\r\n");
+            txtOutput.ResumeLayout();
         }
 
         private void btnClear_Click(object sender, EventArgs e)

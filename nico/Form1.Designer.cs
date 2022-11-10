@@ -29,35 +29,26 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Fibonacci));
-            this.btnFibonacciRecursivo = new System.Windows.Forms.Button();
             this.txtOutput = new System.Windows.Forms.TextBox();
             this.txtInputFibonacci = new System.Windows.Forms.TextBox();
-            this.btnFibonacciLista = new System.Windows.Forms.Button();
             this.btnMostrarLista = new System.Windows.Forms.Button();
             this.btnClear = new System.Windows.Forms.Button();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.arquivoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.salvarListaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.zerarListaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.sairToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sobreToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.integrantesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.btnRodar = new System.Windows.Forms.Button();
+            this.chkRecursivo = new System.Windows.Forms.CheckBox();
+            this.chkDinamico = new System.Windows.Forms.CheckBox();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // btnFibonacciRecursivo
-            // 
-            this.btnFibonacciRecursivo.Location = new System.Drawing.Point(86, 378);
-            this.btnFibonacciRecursivo.Name = "btnFibonacciRecursivo";
-            this.btnFibonacciRecursivo.Size = new System.Drawing.Size(70, 34);
-            this.btnFibonacciRecursivo.TabIndex = 0;
-            this.btnFibonacciRecursivo.Text = "Fibonacci Recursivo";
-            this.btnFibonacciRecursivo.UseVisualStyleBackColor = true;
-            this.btnFibonacciRecursivo.Click += new System.EventHandler(this.btnFibonacciRecursivo_Click);
             // 
             // txtOutput
             // 
@@ -79,21 +70,11 @@
             this.txtInputFibonacci.Size = new System.Drawing.Size(222, 31);
             this.txtInputFibonacci.TabIndex = 2;
             // 
-            // btnFibonacciLista
-            // 
-            this.btnFibonacciLista.Location = new System.Drawing.Point(10, 378);
-            this.btnFibonacciLista.Name = "btnFibonacciLista";
-            this.btnFibonacciLista.Size = new System.Drawing.Size(70, 34);
-            this.btnFibonacciLista.TabIndex = 6;
-            this.btnFibonacciLista.Text = "Fibonacci Dinâmico";
-            this.btnFibonacciLista.UseVisualStyleBackColor = true;
-            this.btnFibonacciLista.Click += new System.EventHandler(this.btnFibonacciLista_Click);
-            // 
             // btnMostrarLista
             // 
-            this.btnMostrarLista.Location = new System.Drawing.Point(162, 378);
+            this.btnMostrarLista.Location = new System.Drawing.Point(157, 414);
             this.btnMostrarLista.Name = "btnMostrarLista";
-            this.btnMostrarLista.Size = new System.Drawing.Size(70, 34);
+            this.btnMostrarLista.Size = new System.Drawing.Size(75, 24);
             this.btnMostrarLista.TabIndex = 7;
             this.btnMostrarLista.Text = "Mostrar Lista";
             this.btnMostrarLista.UseVisualStyleBackColor = true;
@@ -134,16 +115,38 @@
             // salvarListaToolStripMenuItem
             // 
             this.salvarListaToolStripMenuItem.Name = "salvarListaToolStripMenuItem";
-            this.salvarListaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.salvarListaToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
             this.salvarListaToolStripMenuItem.Text = "Exportar Lista";
             this.salvarListaToolStripMenuItem.Click += new System.EventHandler(this.salvarListaToolStripMenuItem_Click);
             // 
             // zerarListaToolStripMenuItem
             // 
             this.zerarListaToolStripMenuItem.Name = "zerarListaToolStripMenuItem";
-            this.zerarListaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.zerarListaToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
             this.zerarListaToolStripMenuItem.Text = "Zerar Lista";
             this.zerarListaToolStripMenuItem.Click += new System.EventHandler(this.zerarListaToolStripMenuItem_Click);
+            // 
+            // sairToolStripMenuItem
+            // 
+            this.sairToolStripMenuItem.Name = "sairToolStripMenuItem";
+            this.sairToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
+            this.sairToolStripMenuItem.Text = "Sair";
+            this.sairToolStripMenuItem.Click += new System.EventHandler(this.sairToolStripMenuItem_Click);
+            // 
+            // sobreToolStripMenuItem
+            // 
+            this.sobreToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.integrantesToolStripMenuItem});
+            this.sobreToolStripMenuItem.Name = "sobreToolStripMenuItem";
+            this.sobreToolStripMenuItem.Size = new System.Drawing.Size(49, 20);
+            this.sobreToolStripMenuItem.Text = "Sobre";
+            // 
+            // integrantesToolStripMenuItem
+            // 
+            this.integrantesToolStripMenuItem.Name = "integrantesToolStripMenuItem";
+            this.integrantesToolStripMenuItem.Size = new System.Drawing.Size(133, 22);
+            this.integrantesToolStripMenuItem.Text = "Integrantes";
+            this.integrantesToolStripMenuItem.Click += new System.EventHandler(this.integrantesToolStripMenuItem_Click);
             // 
             // pictureBox1
             // 
@@ -176,42 +179,55 @@
             this.label2.TabIndex = 12;
             this.label2.Text = "Número:";
             // 
-            // sairToolStripMenuItem
+            // btnRodar
             // 
-            this.sairToolStripMenuItem.Name = "sairToolStripMenuItem";
-            this.sairToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.sairToolStripMenuItem.Text = "Sair";
-            this.sairToolStripMenuItem.Click += new System.EventHandler(this.sairToolStripMenuItem_Click);
+            this.btnRodar.Location = new System.Drawing.Point(157, 385);
+            this.btnRodar.Name = "btnRodar";
+            this.btnRodar.Size = new System.Drawing.Size(75, 23);
+            this.btnRodar.TabIndex = 13;
+            this.btnRodar.Text = "Rodar";
+            this.btnRodar.UseVisualStyleBackColor = true;
+            this.btnRodar.Click += new System.EventHandler(this.btnRodar_Click);
             // 
-            // sobreToolStripMenuItem
+            // chkRecursivo
             // 
-            this.sobreToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.integrantesToolStripMenuItem});
-            this.sobreToolStripMenuItem.Name = "sobreToolStripMenuItem";
-            this.sobreToolStripMenuItem.Size = new System.Drawing.Size(49, 20);
-            this.sobreToolStripMenuItem.Text = "Sobre";
+            this.chkRecursivo.AutoSize = true;
+            this.chkRecursivo.Checked = true;
+            this.chkRecursivo.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chkRecursivo.Location = new System.Drawing.Point(22, 390);
+            this.chkRecursivo.Name = "chkRecursivo";
+            this.chkRecursivo.Size = new System.Drawing.Size(74, 17);
+            this.chkRecursivo.TabIndex = 14;
+            this.chkRecursivo.Text = "Recursivo";
+            this.chkRecursivo.UseVisualStyleBackColor = true;
             // 
-            // integrantesToolStripMenuItem
+            // chkDinamico
             // 
-            this.integrantesToolStripMenuItem.Name = "integrantesToolStripMenuItem";
-            this.integrantesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.integrantesToolStripMenuItem.Text = "Integrantes";
-            this.integrantesToolStripMenuItem.Click += new System.EventHandler(this.integrantesToolStripMenuItem_Click);
+            this.chkDinamico.AutoSize = true;
+            this.chkDinamico.Checked = true;
+            this.chkDinamico.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chkDinamico.Location = new System.Drawing.Point(22, 414);
+            this.chkDinamico.Name = "chkDinamico";
+            this.chkDinamico.Size = new System.Drawing.Size(70, 17);
+            this.chkDinamico.TabIndex = 15;
+            this.chkDinamico.Text = "Dinamico";
+            this.chkDinamico.UseVisualStyleBackColor = true;
             // 
             // Fibonacci
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(711, 450);
+            this.Controls.Add(this.chkDinamico);
+            this.Controls.Add(this.chkRecursivo);
+            this.Controls.Add(this.btnRodar);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btnClear);
             this.Controls.Add(this.btnMostrarLista);
-            this.Controls.Add(this.btnFibonacciLista);
             this.Controls.Add(this.txtInputFibonacci);
             this.Controls.Add(this.txtOutput);
-            this.Controls.Add(this.btnFibonacciRecursivo);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Fibonacci";
@@ -226,11 +242,8 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Button btnFibonacciRecursivo;
         private System.Windows.Forms.TextBox txtOutput;
         private System.Windows.Forms.TextBox txtInputFibonacci;
-        private System.Windows.Forms.Button btnFibonacciLista;
         private System.Windows.Forms.Button btnMostrarLista;
         private System.Windows.Forms.Button btnClear;
         private System.Windows.Forms.MenuStrip menuStrip1;
@@ -243,6 +256,9 @@
         private System.Windows.Forms.ToolStripMenuItem sairToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem sobreToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem integrantesToolStripMenuItem;
+        private System.Windows.Forms.Button btnRodar;
+        private System.Windows.Forms.CheckBox chkRecursivo;
+        private System.Windows.Forms.CheckBox chkDinamico;
     }
 }
 
