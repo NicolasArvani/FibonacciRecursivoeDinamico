@@ -55,7 +55,7 @@
             this.txtOutput.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtOutput.Location = new System.Drawing.Point(238, 62);
+            this.txtOutput.Location = new System.Drawing.Point(238, 33);
             this.txtOutput.Multiline = true;
             this.txtOutput.Name = "txtOutput";
             this.txtOutput.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
@@ -64,6 +64,7 @@
             // 
             // txtInputFibonacci
             // 
+            this.txtInputFibonacci.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.txtInputFibonacci.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.25F);
             this.txtInputFibonacci.Location = new System.Drawing.Point(10, 342);
             this.txtInputFibonacci.Name = "txtInputFibonacci";
@@ -72,6 +73,7 @@
             // 
             // btnMostrarLista
             // 
+            this.btnMostrarLista.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnMostrarLista.Location = new System.Drawing.Point(157, 414);
             this.btnMostrarLista.Name = "btnMostrarLista";
             this.btnMostrarLista.Size = new System.Drawing.Size(75, 24);
@@ -82,8 +84,8 @@
             // 
             // btnClear
             // 
-            this.btnClear.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnClear.Location = new System.Drawing.Point(624, 33);
+            this.btnClear.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnClear.Location = new System.Drawing.Point(624, 415);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(75, 23);
             this.btnClear.TabIndex = 8;
@@ -144,7 +146,7 @@
             // integrantesToolStripMenuItem
             // 
             this.integrantesToolStripMenuItem.Name = "integrantesToolStripMenuItem";
-            this.integrantesToolStripMenuItem.Size = new System.Drawing.Size(133, 22);
+            this.integrantesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.integrantesToolStripMenuItem.Text = "Integrantes";
             this.integrantesToolStripMenuItem.Click += new System.EventHandler(this.integrantesToolStripMenuItem_Click);
             // 
@@ -171,16 +173,18 @@
             // 
             // label2
             // 
+            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 18.25F);
             this.label2.Location = new System.Drawing.Point(7, 310);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(110, 29);
+            this.label2.Size = new System.Drawing.Size(203, 29);
             this.label2.TabIndex = 12;
-            this.label2.Text = "Número:";
+            this.label2.Text = "Indice Fibonacci:";
             // 
             // btnRodar
             // 
+            this.btnRodar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnRodar.Location = new System.Drawing.Point(157, 385);
             this.btnRodar.Name = "btnRodar";
             this.btnRodar.Size = new System.Drawing.Size(75, 23);
@@ -191,6 +195,7 @@
             // 
             // chkRecursivo
             // 
+            this.chkRecursivo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.chkRecursivo.AutoSize = true;
             this.chkRecursivo.Checked = true;
             this.chkRecursivo.CheckState = System.Windows.Forms.CheckState.Checked;
@@ -203,6 +208,7 @@
             // 
             // chkDinamico
             // 
+            this.chkDinamico.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.chkDinamico.AutoSize = true;
             this.chkDinamico.Checked = true;
             this.chkDinamico.CheckState = System.Windows.Forms.CheckState.Checked;
@@ -230,6 +236,7 @@
             this.Controls.Add(this.txtOutput);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
+            this.MinimumSize = new System.Drawing.Size(727, 489);
             this.Name = "Fibonacci";
             this.Text = "Fibonacci";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);

@@ -19,7 +19,6 @@ namespace nico
         public Fibonacci()
         {
             InitializeComponent();
-            this.MinimumSize = new Size(613, 489);
             carregarLista();
         }
 
