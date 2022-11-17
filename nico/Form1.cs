@@ -70,8 +70,9 @@ namespace nico
 
         private void btnRodar_Click(object sender, EventArgs e)
         {
-            if (String.IsNullOrEmpty(txtInputFibonacci.Text))
+            if (String.IsNullOrEmpty(txtInputFibonacci.Text) || txtInputFibonacci.Text.Any(Char.IsLetter)) //verifica se o input é valido
                 return;
+            this.Cursor = Cursors.WaitCursor;
             int x = int.Parse(txtInputFibonacci.Text);
             if(x > 40)
             {
@@ -102,6 +103,7 @@ namespace nico
                 txtOutput.AppendText("[Dinamica] Fibonacci de " + x.ToString() + ": " + resultadoDin.ToString() + "\r\n");
                 txtOutput.AppendText("Tempo de execução: " + stopwatch.ElapsedMilliseconds.ToString() + "ms\r\n");
             }
+            this.Cursor = Cursors.Default;
         }
 
         private void btnFibonacciRecursivo_Click(object sender, EventArgs e) //legacy
@@ -149,6 +151,8 @@ namespace nico
         private void btnMostrarLista_Click(object sender, EventArgs e)
         {
             txtOutput.AppendText("Listando itens no arquivo:\r\n");
+            this.Cursor = Cursors.WaitCursor;
+            txtOutput.Hide();
             int i = 1;
             foreach(BigInteger n in ListaFibonacci)
             {
@@ -156,7 +160,8 @@ namespace nico
                 i++;
             };
             txtOutput.AppendText("Total de Itens: " + ListaFibonacci.Count.ToString() + "\r\n");
-            txtOutput.ResumeLayout();
+            txtOutput.Show();
+            this.Cursor = Cursors.Default;
         }
 
         private void btnClear_Click(object sender, EventArgs e)
